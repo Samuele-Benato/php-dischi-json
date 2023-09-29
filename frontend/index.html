@@ -35,8 +35,8 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <!-- CSS LINK -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <!-- CSS LINK
+    <link rel="stylesheet" href="./css/style.css" /> -->
     <!-- VUE 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- AXIOS -->
@@ -46,20 +46,36 @@
   </head>
 </html>
 
-<body>
+<body data-bs-theme="dark">
   <div id="app">
     <div class="container">
       <header>
-        <h1>php-dischi-json</h1>
+        <h1 class="text-center mt-4">php-dischi-json</h1>
       </header>
       <main>
-        <div v-for="(disco,index) in dischi" :key="index" class="card">
-          <img :src="disco.poster" class="card-img-top" alt="poster disco" />
-          <div class="card-body">
-            <h2 class="card-title">{{disco.title}}</h2>
-            <span class="disk-author">{{disco.author}}</span>
-            <span class="disk-genre">{{disco.genre}}</span>
-            <span class="disk-year">{{disco.year}}</span>
+        <div
+          class="row justify-content-around align-items-center g-2 flex-wrap"
+        >
+          <div
+            v-for="(disco,index) in dischi"
+            :key="index"
+            class="col-lg-4 col-md-6"
+          >
+            <div class="card my-3">
+              <img
+                :src="disco.poster"
+                class="card-img-top"
+                alt="poster disco"
+              />
+              <div class="card-body text-center">
+                <span class="d-block fs-4 my-2 fw-bold">{{disco.title}}</span>
+                <span class="d-block fs-5 my-2 fw-semibold"
+                  >{{disco.author}}</span
+                >
+                <span class="d-block fs-6 my-2">{{disco.genre}}</span>
+                <span class="d-block fs-6 my-2">{{disco.year}}</span>
+              </div>
+            </div>
           </div>
         </div>
       </main>
